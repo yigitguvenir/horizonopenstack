@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load horizon %}
+
+{% load i18n %}
+{% block title %}
+  {% trans "Mypanel" %}
+{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Mypanel") %}
+{% endblock page_header %}
+
+{% block main %}
+<div class="row">
+   <div class="col-sm-12">
+   {{ tab_group.render }}
+<form action="/action_page.php">
+  <label for="fname">Hedef IP adresi:</label><br>
+  <input type="text" id="fname" name="fname" value=><br>
+  <label for="lname">Oluşturan Kişi</label><br>
+  <input type="text" id="lname" name="lname" value=><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>Kurulmasını istediğiniz hizmeti seçip "Submit" tuşuna basınız.</p>
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">Kubernetes</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">Hadoop</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">Docker</label>
+</form> 
+{% endblock %}
+
+
